@@ -1,9 +1,9 @@
 {
     "name": "management",
     "version": "1.0.0",
-    "script": {
+    "scripts": {
         "client": "cd client && yarn start",
-        "server": "nodeon server.js",
+        "server": "nodemon server.js",
         "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
     },
     "dependencies": {
