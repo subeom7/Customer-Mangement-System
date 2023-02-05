@@ -24,7 +24,7 @@ const styles = theme => ({
 const customers = [{
   'id': 1,
   'image': 'https://xsgames.co/randomusers/avatar.php?g=pixel',
-  'name': 'customer1',
+  'name': 'Justin',
   'birthday': '1/1/2002',
   'gender': 'male',
   'job': 'Software Engineer'
@@ -32,7 +32,7 @@ const customers = [{
 {
   'id': 2,
   'image': 'https://xsgames.co/randomusers/assets/avatars/pixel/24.jpg',
-  'name': 'customer2',
+  'name': 'Issac',
   'birthday': '4/3/1999',
   'gender': 'male',
   'job': 'student'
@@ -40,7 +40,7 @@ const customers = [{
 {
   'id': 3,
   'image': 'https://xsgames.co/randomusers/assets/avatars/pixel/33.jpg',
-  'name': 'customer3',
+  'name': 'Olivia',
   'birthday': '5/3/2003',
   'gender': 'Female',
   'job': 'Designer'
