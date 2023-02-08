@@ -8,6 +8,9 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell'; 
 import { withStyles } from '@mui/styles';
+import { CircularProgress } from '@mui/material';
+// import { makeStyles } from '@mui/styles';
+
 
 
 
@@ -19,16 +22,41 @@ const styles = theme => ({
   },
   table:{
     minWidth: 1080
+  },
+  progress:{
+    // margin: theme.spacing.unit * 2
+    
   }
 })
 
+//React Life Cycle
+
+/*
+1) construct()
+
+2) componentWillMount()
+
+3) render()
+
+4) componentDidMount()
+
+*/
+
+/*
+
+props or state => shouldComponentUpdate()
+
+*/
 class App extends Component {
 
   state = {
-    customers: ""
+    customers: "",
+    completed: 0
   }
 
   componentDidMount(){
+    this.timer = setInterval(this.progess, 20);
+    //comment out this part to test progress bar
     this.callApi()
       .then(res => this.setState({customers: res}))
     .catch(err => console.log(err));
@@ -38,6 +66,11 @@ class App extends Component {
     const response = await fetch('/api/customers');
     const body = await response.json();
     return body;
+  }
+
+  progess = () => {
+    const {completed} = this.state;
+    this.setState({completed: completed > 100 ? 0 : completed + 1});
   }
 
   render(){
@@ -58,7 +91,14 @@ class App extends Component {
           <TableBody>
         {this.state.customers ? 
         this.state.customers.map(c => {return (<Customer key={c.id} id ={c.id} image = {c.image} name = {c.name} birthday = {c.birthday} gender = {c.gender} job = {c.job}/>);
-        }) : "no data"}  
+        }) : 
+        <TableRow>
+          <TableCell colSpan="6" align="center">
+            <CircularProgress className = {classes.progess} variant="determinate" value={this.state.completed}/>
+
+          </TableCell>
+        </TableRow>
+        }  
         </TableBody>     
         </Table>
       </Paper>
