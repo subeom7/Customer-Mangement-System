@@ -1,6 +1,6 @@
 const fs = require('fs');
-const bodyParser = require("body-parser");
-const express = require("express");
+const bodyParser = require('body-parser');
+const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -12,7 +12,7 @@ const conf = JSON.parse(data);
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host:conf.host,
+  host: conf.host,
   user: conf.user,
   password: conf.password,
   port: conf.port,
@@ -20,6 +20,9 @@ const connection = mysql.createConnection({
 });
 
 connection.connect();
+
+const multer = require('multer');
+const upload = multer({dest: './upload'})
 
 //send json
 app.get('/api/customers', (req, res) => {
@@ -31,33 +34,23 @@ app.get('/api/customers', (req, res) => {
     );
 });
 
-app.listen(port, ()=> console.log(`Listening on port ${port}`));
+app.use('/image', express.static('./upload'));
 
-// app.get('/api/customers', (req, res) => {
-//   res.send([
-//       {
-//       'id': 1,
-//       'image': 'https://xsgames.co/randomusers/avatar.php?g=pixel',
-//       'name': 'Justin',
-//       'birthday': '1/1/2002',
-//       'gender': 'male',
-//       'job': 'Software Engineer'
-//     },
-//     {
-//       'id': 2,
-//       'image': 'https://xsgames.co/randomusers/assets/avatars/pixel/24.jpg',
-//       'name': 'Issac',
-//       'birthday': '4/3/1999',
-//       'gender': 'male',
-//       'job': 'student'
-//     },
-//     {
-//       'id': 3,
-//       'image': 'https://xsgames.co/randomusers/assets/avatars/pixel/33.jpg',
-//       'name': 'Olivia',
-//       'birthday': '5/3/2003',
-//       'gender': 'Female',
-//       'job': 'Designer'
-//     }
-//   ]);
-// });
+app.post('/api/customers', upload.single('image'), (req, res) => {
+  let sql = 'INSERT INTO CUSTOMER VALUES (null, ?, ?, ?, ?, ?)';
+  let image = 'http://localhost:5000/image/' + req.file.filename;
+  let name = req.body.name;
+  let birthday = req.body.birthday;
+  let gender = req.body.gender;
+  let job = req.body.job;
+  let params = [image, name, birthday, gender, job];
+  connection.query(sql, params, 
+    (err, rows, fields) => {
+      res.send(rows);
+      console.log(err);
+    }
+  );
+});
+
+
+app.listen(port, ()=> console.log(`Listening on port ${port}`));
