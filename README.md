@@ -1,5 +1,5 @@
 ## Management System
-Customer Management System using React, Node.js, express.js, Rest API and AWS (Amazon RDS for MySQL)
+Customer Management System using React, Material UI, Node.js, express.js, Rest API and AWS (Amazon RDS for MySQL)
 
 # Getting Started with Create React App
 
