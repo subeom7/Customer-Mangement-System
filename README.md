@@ -11,7 +11,7 @@ Customer Management System using React, Material UI, Node.js, express.js, Rest A
 <a href="https://nodejs.org/en/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/nodejs-colored.svg" width="36" height="36" alt="NodeJS" /></a>
 <a href="https://expressjs.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/express-colored.svg" width="36" height="36" alt="Express" /></a>
 <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/mysql.svg" width="36" height="36" alt="Express" /></a>
-<a href="https://aws.amazon.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/tandpfun/skill-icons/59059d9d1a2c092696dc66e00931cc1181a4ce1f/icons/AWS-Dark.svg" width="36" height="36" alt="Aws" /></a>
+<a href="https://aws.amazon.com/" target="_blank" rel="noreferrer"><img src="https://simpleicons.org/icons/amazonaws.svg" width="36" height="36" alt="AWS" /></a>
 </p>
 
 # Getting Started with Create React App
