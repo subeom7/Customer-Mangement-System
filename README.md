@@ -1,4 +1,4 @@
-## Management System
+## Customer Management System
 Customer Management System using React, Material UI, Node.js, express.js, Rest API and AWS (Amazon RDS for MySQL)
 
 ## Used Tools & Frameworks
