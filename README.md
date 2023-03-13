@@ -36,7 +36,7 @@ Runs server
 
 ### `yarn dev`
 
-Runs both client and server
+Runs both client and server using "concurrently" library
 
 ### `npm start`
 
